@@ -105,15 +105,15 @@
           <div class="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-700 flex items-center justify-center">
             <Link size={18} strokeWidth={2.5} />
           </div>
-          <h3 class="text-base font-bold text-slate-800">
+          <h2 class="text-base font-bold text-slate-800">
             {item ? "Ubah Tautan" : "Tambah Tautan"}
-          </h3>
+          </h2>
         </div>
         <button
           type="button"
           data-testid="close-item-modal-btn"
           on:click={handleClose}
-          class="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
+          class="p-1.5 rounded-lg text-slate-500 hover:text-slate-600 hover:bg-slate-100 transition-colors"
         >
           <X size={18} />
         </button>
@@ -122,7 +122,7 @@
       <form on:submit|preventDefault={handleSave} class="p-6 space-y-4">
         <div>
           <label for="item-title-input" class="block text-sm font-semibold text-slate-700 mb-1.5">
-            Judul Tautan <span class="text-red-500">*</span>
+            Judul Tautan <span class="text-red-600">*</span>
           </label>
           <input
             id="item-title-input"
@@ -136,7 +136,7 @@
 
         <div>
           <label for="item-url-input" class="block text-sm font-semibold text-slate-700 mb-1.5">
-            URL <span class="text-red-500">*</span>
+            URL <span class="text-red-600">*</span>
           </label>
           <input
             id="item-url-input"

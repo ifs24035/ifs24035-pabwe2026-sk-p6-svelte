@@ -82,6 +82,13 @@ const iconNames = [
   "Pencil", "Trash2", "Funnel", "Sparkles", "CircleAlert",
 ];
 
+vi.mock("sweetalert2", () => ({
+  default: {
+    fire: () => Promise.resolve({ isConfirmed: true }),
+    close: () => {},
+  },
+}));
+
 vi.mock("lucide-svelte", async (importOriginal) => {
   const actual = await importOriginal();
   const mocked = {};

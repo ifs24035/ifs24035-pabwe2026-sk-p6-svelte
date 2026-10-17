@@ -68,7 +68,7 @@
             <Plus size={18} strokeWidth={2.5} />
           </div>
           <div>
-            <h3 class="text-base font-bold text-slate-800">Tambah Link Tree Baru</h3>
+            <h2 class="text-base font-bold text-slate-800">Tambah Link Tree Baru</h2>
             <p class="text-xs text-slate-500">Buat halaman kumpulan tautan baru</p>
           </div>
         </div>
@@ -76,7 +76,7 @@
           type="button"
           data-testid="close-add-modal-btn"
           on:click={handleClose}
-          class="p-2 rounded-xl text-slate-400 hover:text-slate-600 hover:bg-slate-200/60 transition-colors"
+          class="p-2 rounded-xl text-slate-500 hover:text-slate-600 hover:bg-slate-200/60 transition-colors"
         >
           <X size={20} />
         </button>
@@ -85,7 +85,7 @@
       <form on:submit|preventDefault={handleSave} class="p-6 space-y-4">
         <div>
           <label for="add-link-tree-title-input" class="block text-sm font-semibold text-slate-700 mb-1.5">
-            Judul <span class="text-red-500">*</span>
+            Judul <span class="text-red-600">*</span>
           </label>
           <input
             id="add-link-tree-title-input"
@@ -116,7 +116,7 @@
 
         <div>
           <label for="add-link-tree-description-input" class="block text-sm font-semibold text-slate-700 mb-1.5">
-            Deskripsi <span class="text-red-500">*</span>
+            Deskripsi <span class="text-red-600">*</span>
           </label>
           <textarea
             id="add-link-tree-description-input"

@@ -1,51 +1,51 @@
-import Swal from "sweetalert2";
+// SweetAlert2 dimuat malas (lazy) — hanya diunduh saat dialog pertama kali ditampilkan,
+// sehingga tidak ikut memperbesar JavaScript awal halaman.
+async function loadSwal() {
+  const module = await import("sweetalert2");
+  return module.default;
+}
+
+async function fireAndClose(options) {
+  const Swal = await loadSwal();
+  const result = await Swal.fire(options);
+  if (result.isConfirmed) {
+    Swal.close();
+  }
+  return result;
+}
 
 export function showErrorDialog(message) {
-  return Swal.fire({
+  return fireAndClose({
     title: "Terjadi Kesalahan",
     text: message,
     icon: "error",
     confirmButtonText: "Tutup",
     confirmButtonColor: "#ef4444",
-  }).then((result) => {
-    if (result.isConfirmed) {
-      Swal.close();
-    }
-    return result;
   });
 }
 
 export function showWarningDialog(message) {
-  return Swal.fire({
+  return fireAndClose({
     title: "Peringatan",
     text: message,
     icon: "warning",
     confirmButtonText: "Tutup",
     confirmButtonColor: "#f59e0b",
-  }).then((result) => {
-    if (result.isConfirmed) {
-      Swal.close();
-    }
-    return result;
   });
 }
 
 export function showSuccessDialog(message) {
-  return Swal.fire({
+  return fireAndClose({
     title: "Tindakan Berhasil",
     text: message,
     icon: "success",
     confirmButtonText: "Tutup",
     confirmButtonColor: "#10b981",
-  }).then((result) => {
-    if (result.isConfirmed) {
-      Swal.close();
-    }
-    return result;
   });
 }
 
-export function showConfirmDialog(message) {
+export async function showConfirmDialog(message) {
+  const Swal = await loadSwal();
   return Swal.fire({
     title: "Konfirmasi",
     text: message,

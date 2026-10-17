@@ -122,7 +122,7 @@
         </div>
         <ChevronDown
           size={16}
-          class="text-slate-400 transition-transform duration-200 {dropdownOpen
+          class="text-slate-500 transition-transform duration-200 {dropdownOpen
             ? 'rotate-180'
             : ''}"
         />

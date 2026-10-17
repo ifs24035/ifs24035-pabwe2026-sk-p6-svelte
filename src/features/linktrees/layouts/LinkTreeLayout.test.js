@@ -2,12 +2,13 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import LinkTreeLayout from "./LinkTreeLayout.svelte";
 import { renderWithProviders } from "../../../test-utils";
 import apiHelper from "../../../helpers/apiHelper";
-import * as routerModule from "../../../router";
 import { usersStore as realUsersStore } from "../../users/states/usersStore";
+import * as routerModule from "../../../router";
 
 describe("LinkTreeLayout", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    // Cegah onMount memanggil API sungguhan (yang akan mengosongkan profile)
     vi.spyOn(realUsersStore, "asyncSetProfile").mockImplementation(() => Promise.resolve());
   });
 

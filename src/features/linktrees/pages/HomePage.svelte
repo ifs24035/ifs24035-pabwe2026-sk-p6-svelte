@@ -140,10 +140,10 @@
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
       <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs flex items-center justify-between">
         <div>
-          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">
             Total Link Tree
           </p>
-          <h3 data-testid="stat-total" class="text-3xl font-black text-slate-800 mt-1">{totalCount}</h3>
+          <p data-testid="stat-total" class="text-3xl font-black text-slate-800 mt-1">{totalCount}</p>
         </div>
         <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
           <Link size={26} strokeWidth={2} />
@@ -152,12 +152,12 @@
 
       <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs flex items-center justify-between">
         <div>
-          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">
             Link Tree Publik
           </p>
-          <h3 data-testid="stat-public" class="text-3xl font-black text-emerald-600 mt-1">
+          <p data-testid="stat-public" class="text-3xl font-black text-emerald-600 mt-1">
             {publicCount}
-          </h3>
+          </p>
         </div>
         <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
           <Globe size={26} strokeWidth={2} />
@@ -166,10 +166,10 @@
 
       <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-xs flex items-center justify-between">
         <div>
-          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">
             Total Tautan
           </p>
-          <h3 data-testid="stat-links" class="text-3xl font-black text-amber-600 mt-1">{totalLinks}</h3>
+          <p data-testid="stat-links" class="text-3xl font-black text-amber-600 mt-1">{totalLinks}</p>
         </div>
         <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center">
           <Link size={26} strokeWidth={2} />
@@ -183,7 +183,7 @@
         <div class="relative flex-1 max-w-md">
           <Search
             size={18}
-            class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"
+            class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500"
           />
           <input
             type="text"
@@ -235,14 +235,14 @@
           <tbody class="divide-y divide-slate-100">
             {#if loadingLinkTrees && filteredLinkTrees.length === 0}
               <tr>
-                <td colspan="7" class="px-6 py-12 text-center text-slate-400">
+                <td colspan="7" class="px-6 py-12 text-center text-slate-500">
                   <LoaderCircle size={36} class="mx-auto text-indigo-600 animate-spin mb-2" />
                   <p class="font-medium text-slate-600">Memuat daftar link tree...</p>
                 </td>
               </tr>
             {:else if filteredLinkTrees.length === 0}
               <tr>
-                <td colspan="7" class="px-6 py-12 text-center text-slate-400">
+                <td colspan="7" class="px-6 py-12 text-center text-slate-500">
                   <Link size={40} class="mx-auto text-slate-300 mb-2" />
                   <p class="font-medium">Belum ada data link tree yang cocok.</p>
                 </td>
@@ -254,7 +254,7 @@
                   data-testid={`link-tree-row-${linkTree.id}`}
                   class="hover:bg-slate-50/70 transition-colors group"
                 >
-                  <td class="px-5 py-4 text-center font-mono text-xs font-bold text-slate-400">
+                  <td class="px-5 py-4 text-center font-mono text-xs font-bold text-slate-500">
                     {"#" + linkTree.id}
                   </td>
                   <td class="px-5 py-4">
@@ -271,7 +271,7 @@
                           {linkTree.title}
                         </p>
                         {#if linkTree.description}
-                          <p class="text-xs text-slate-400 line-clamp-1 mt-0.5">
+                          <p class="text-xs text-slate-500 line-clamp-1 mt-0.5">
                             {linkTree.description}
                           </p>
                         {/if}

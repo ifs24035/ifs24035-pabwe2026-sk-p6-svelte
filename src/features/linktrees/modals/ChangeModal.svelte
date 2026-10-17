@@ -94,7 +94,7 @@
             <PenLine size={18} strokeWidth={2.5} />
           </div>
           <div>
-            <h3 class="text-base font-bold text-slate-800">Ubah Data Link Tree</h3>
+            <h2 class="text-base font-bold text-slate-800">Ubah Data Link Tree</h2>
             <p class="text-xs text-slate-500">Perbarui judul, tipe, dan deskripsi</p>
           </div>
         </div>
@@ -102,7 +102,7 @@
           type="button"
           data-testid="close-edit-modal-btn"
           on:click={handleClose}
-          class="p-2 rounded-xl text-slate-400 hover:text-slate-600 hover:bg-slate-200/60 transition-colors"
+          class="p-2 rounded-xl text-slate-500 hover:text-slate-600 hover:bg-slate-200/60 transition-colors"
         >
           <X size={20} />
         </button>
@@ -116,7 +116,7 @@
         {:else}
           <div>
             <label for="edit-link-tree-title-input" class="block text-sm font-semibold text-slate-700 mb-1.5">
-              Judul <span class="text-red-500">*</span>
+              Judul <span class="text-red-600">*</span>
             </label>
             <input
               id="edit-link-tree-title-input"
@@ -146,7 +146,7 @@
 
           <div>
             <label for="edit-link-tree-description-input" class="block text-sm font-semibold text-slate-700 mb-1.5">
-              Deskripsi <span class="text-red-500">*</span>
+              Deskripsi <span class="text-red-600">*</span>
             </label>
             <textarea
               id="edit-link-tree-description-input"

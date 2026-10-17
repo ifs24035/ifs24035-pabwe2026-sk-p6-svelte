@@ -4,6 +4,35 @@ import { svelteTesting } from "@testing-library/svelte/vite";
 import tailwindcss from "@tailwindcss/vite";
 import process from "process";
 
+// Menyisipkan CSS hasil build langsung ke index.html agar tidak ada
+// stylesheet eksternal yang memblokir render (Lighthouse: render-blocking).
+function inlineCssPlugin() {
+  return {
+    name: "inline-css",
+    apply: "build",
+    enforce: "post",
+    transformIndexHtml: {
+      order: "post",
+      handler(html, ctx) {
+        const bundle = ctx && ctx.bundle;
+        if (!bundle) return html;
+        return html.replace(/<link\b[^>]*>/g, (tag) => {
+          if (!/rel=["']stylesheet["']/.test(tag)) return tag;
+          const match = tag.match(/href=["']([^"']+\.css)["']/);
+          if (!match) return tag;
+          const asset = bundle[match[1].replace(/^\//, "")];
+          if (!asset || asset.type !== "asset") return tag;
+          const css =
+            typeof asset.source === "string"
+              ? asset.source
+              : new TextDecoder().decode(asset.source);
+          return `<style>${css}</style>`;
+        });
+      },
+    },
+  };
+}
+
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
 
@@ -14,6 +43,7 @@ export default defineConfig(({ mode }) => {
       }),
       tailwindcss(),
       svelteTesting(),
+      inlineCssPlugin(),
     ],
     server: {
       port: Number(env.APP_PORT) || 3000,

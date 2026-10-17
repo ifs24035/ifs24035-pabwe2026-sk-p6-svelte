@@ -154,7 +154,7 @@
       <div class="p-6 sm:p-8 space-y-6">
         <div class="space-y-3">
           <div class="flex items-center gap-3">
-            <span class="font-mono text-xs font-bold text-slate-400">
+            <span class="font-mono text-xs font-bold text-slate-500">
               {"#" + linkTree.id}
             </span>
             <span
@@ -169,7 +169,7 @@
             {linkTree.title}
           </h1>
 
-          <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-400">
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-500">
             <span>Oleh: <strong class="text-slate-500">{linkTree.author?.name || "-"}</strong></span>
             <div class="flex items-center gap-1.5">
               <Calendar size={14} class="shrink-0" />
@@ -189,7 +189,7 @@
           {#if linkTree.description}
             {linkTree.description}
           {:else}
-            <p class="italic text-slate-400">Tidak ada deskripsi untuk link tree ini.</p>
+            <p class="italic text-slate-500">Tidak ada deskripsi untuk link tree ini.</p>
           {/if}
         </div>
       </div>
@@ -200,7 +200,7 @@
       <div class="flex items-center justify-between px-6 sm:px-8 py-5 border-b border-slate-100">
         <div>
           <h2 class="text-lg font-bold text-slate-900">Daftar Tautan</h2>
-          <p class="text-xs text-slate-400 mt-0.5">{items.length} tautan di halaman ini</p>
+          <p class="text-xs text-slate-500 mt-0.5">{items.length} tautan di halaman ini</p>
         </div>
         <button
           type="button"
@@ -214,7 +214,7 @@
       </div>
 
       {#if items.length === 0}
-        <div class="px-6 py-12 text-center text-slate-400">
+        <div class="px-6 py-12 text-center text-slate-500">
           <Link size={36} class="mx-auto text-slate-300 mb-2" />
           <p class="font-medium">Belum ada tautan. Tambahkan tautan pertama Anda.</p>
         </div>

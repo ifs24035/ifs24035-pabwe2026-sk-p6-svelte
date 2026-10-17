@@ -16,7 +16,13 @@ function inlineCssPlugin() {
       handler(html, ctx) {
         const bundle = ctx && ctx.bundle;
         if (!bundle) return html;
-        return html.replace(/<link\b[^>]*>/g, (tag) => {
+        // Preload skrip entri (modulepreload) agar tidak dihitung sebagai rantai
+        // permintaan kritis (Lighthouse: network dependency tree).
+        const withPreload = html.replace(
+          /<script\b[^>]*type=["']module["'][^>]*src=["']([^"']+)["'][^>]*><\/script>/,
+          (tag, src) => `<link rel="modulepreload" crossorigin href="${src}">\n    ${tag}`
+        );
+        return withPreload.replace(/<link\b[^>]*>/g, (tag) => {
           if (!/rel=["']stylesheet["']/.test(tag)) return tag;
           const match = tag.match(/href=["']([^"']+\.css)["']/);
           if (!match) return tag;
